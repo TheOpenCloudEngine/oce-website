@@ -1,0 +1,324 @@
+<html><head></head><body><dom-module id="uengine-products">
+  <template>
+
+
+   <style is="custom-style">
+
+
+
+    app-toolbar {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-align: center;
+      color: #1a237e;
+    }
+
+    .nav {
+      height: 64px;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .nav li {
+      display: inline-block;
+      list-style: none;
+    }
+
+    .nav a {
+      display: inline-block;
+      font-weight: 12px;
+      line-height: 64px;
+      text-decoration: none;
+      color: black;
+      font-weight: 300;
+      margin: 0 10px;
+    }
+
+    .nav a:hover {
+      color: #444;
+      border-bottom: 1px solid #999;
+    }
+
+    [threshold-triggered] {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .first, .second, .third {
+      height: 600px;
+    }
+    .fourth{
+      height: 300px;
+    }
+
+    .first {
+      --app-box-background-front-layer: {
+        background-image: url(/Image/paas.png);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+    .second {
+      --app-box-background-front-layer: {
+        background-image: url(/Image/paas2.png);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+
+    .third {
+      --app-box-background-front-layer: {
+        background-image: url(/Image/paas.jpg);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+
+    .fourth {
+      --app-box-background-front-layer: {
+        
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+
+      };
+    }
+
+    section {
+      padding-top: 100px;
+    }
+
+    article {
+      font-weight: 100;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto 100px auto;
+    }
+    article h2 {
+      font-weight: 100;
+      font-size: 50px;
+      margin: 5px;
+      line-height: 110%
+    }
+    article h3 {
+      font-weight: 80;
+      font-size: 30px;
+      margin: 10px;
+    }
+
+    article p {
+      font-size: 18px;
+      line-height: 30px;
+    }
+
+    article p-mini {
+      font-size: 10px;
+      line-height: 30px;
+    }
+
+    article hr {
+      width: 100px;
+      height: 1px;
+      border: none;
+      margin: 20px auto;
+      background-color: black;
+    }
+    .flex-horizontal-with-ratios {
+      @apply(--layout-horizontal);
+    }
+
+    .flex2child {
+      @apply(--layout-flex-2);
+      background-color: #E8F8F5;
+    }
+    .flex10child {
+      @apply(--layout-flex-10);
+
+    }
+
+    .uengine-products-div{
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #fafafa;
+      position: fixed;
+    }
+
+    .red{
+      color: red;
+    }
+    .red-background{
+      color: #ffffff;
+      background-color: red;
+    }
+    .orange{
+      color: #FFC300;
+    }
+    .orange-background{
+      color: #ffffff;
+      background-color: #FFC300;
+    }
+    .cobalt-blue{
+      color: #00039c;
+    }
+    .cobalt-blue-background{
+      color: #ffffff;
+      background-color: #00039c;
+    }
+    .green{
+      color: #58D68D;
+    }
+    .green-background{
+      color: #ffffff;
+      background-color: #58D68D;
+    }
+    .brown{
+      color: #967f61;
+    }
+    .brown-background{
+      color: #ffffff;
+      background-color: #967f61;
+    }
+    .right-menu-color{
+       background-color: #E8F8F5;
+       color: #ffffff;
+    }
+    .white{
+      color: #ffffff;
+    }
+
+
+
+
+
+  </style>
+
+      <div id="body-content" class="container flex-horizontal-with-ratios">
+        <div class="flex10child">
+            <main>
+    <section id="garuda-paas" style="background-color: #FCF3CF">
+      <article>
+        <hr>
+        <h2 class="mainFont">Garuda PaaS</h2>
+        <br>
+        <p class="mainFont">Garuda PaaS(Platform as a Service)는 Saas의 개념을 개발 플랫폼에도 확장한 방식으로, 개발을 위한 인프라와 플랫폼을 개발팀 별로 구축할 필요 없이 웹프라우저에서 쉽게 쓸 수 있게 하는 Private Platform as a Service 입니다.</p>
+      </article>
+      <app-box class="first" effects="parallax-background">
+      </app-box>
+    </section>
+
+    <section id="garuda-feature" style="background-color: #FAE5D3">
+      <article>
+        <hr>
+        <h2 class="mainFont">Garuda Feature</h2>
+        <br>
+        <br>
+        <p class="red">Customer Self-Service-Cheap Offerings by sharing single instance+multi-tenancy</p>
+        <p class="red-background">customer Potal and Application Store</p>
+        <br>
+        <br>
+        <p class="orange">Application EcoSystem-Application Store and Developer Portal</p>
+        <p class="orange-background">Application LifecycleManagement</p>
+        <br>
+        <br>
+        <p class="cobalt-blue">Business Continuity-Auto Scaling(Out/In)</p>
+        <p class="cobalt-blue-background">Auto Failover</p>
+        <br>
+        <br>
+        <p class="green">Value-added Business Process-Process Mashup Platform(Model Platform)</p>
+        <p class="green-background">Cloud Service Brokerage</p>
+      </article>
+      <app-box class="second" effects="parallax-background"></app-box>
+    </section>
+
+    <section id="value" style="background-color: #8fcdf2">
+      <article>
+        <hr>
+        <h2 class="white">Value</h2>
+        <br>
+        <br>
+        <p class="brown-background">NoOps Team</p>
+        <p-mini>PaaS는 개발조직에게 통합 미들웨어와 개발 서비스를 알아서 관리해준다. 개발환경의 생성, 디플로이, 관리의 환경에 대한 좀더 추상화된 환경을
+        제공합니다. 이를 통하여 시스템 운영자가 없이 개발에 몰두 할 수 있는 조직인 'DevOps' 혹은 'NoOps'조직을 만들 수 있습니다<p></p>
+        <br>
+        <p class="brown-background">일관성 있는 애플리케이션 생명주기 관리</p>
+        <p-mini>Garuda PaaS는 개발 서비스에 대한 쉬운 프로비져닝을 할 수 있게 해줍니다 - 빌드, 테스트 그리고 형상관리 저장소 서비스 등을 - 어떠한 표준적이지
+         않은 환경에서 개발되었을 때 발생할 수 있는 비효율성, 오류, 비일관성 등의 문제를 개발 라이프사이클 전반에 있어서 막아줍니다. 이로서 개발과 운영조직은
+         SW 라이프사이클 관리를 위한 SW 형상과 버전을 트래킹하는 일관성 있는 플랫품을 갖추게 됩니다. <p></p>
+        <br>
+        <p class="brown-background">서비스 프로비져닝의 비용 절감</p>
+        <p-mini>Garuda Enterprise App Store 에서는 개발된 앱들을 스테이징에서, 운영, 확장까지의 애플리케이션 프로비져닝도 laaS를 직접 다룰 필요 없이 버튼 클릭
+        한번으로 조직에서 사용할 수 있게 준비시켜줍니다. 사용할 애플리케이션에 대한 맞춤화는 셀프세비스 포탈에서 쉽게 설정하여 사용할 수 있습니다.<p></p>
+        <br>
+        <p class="brown-background">서비스 통합 비용 절감</p>
+        <p-mini>전통적으로 애플리케이션들을 통합 연동하는 것은 많은 비용과 시간이 필요하다. Garuda에서는 모든 미들웨어는 쉽게 관리되고 연결될 수 있도록 미리
+        설정되어 있기 때문에 앱스토어에 한번 등록된 앱들은 쉽게 RESTful과 Web Service의 형태와 BPM 플랫폼에 의하여 프로세스 적으로 통합될 수 있다.<p></p>
+      </p-mini></p-mini></p-mini></p-mini></article>
+      <app-box class="third" effects="parallax-background"></app-box>
+    </section>
+
+    <section id="example" style="background-color: #6dbcc3">
+      <article>
+        <hr>
+        <h2 class="white">적용사례</h2>
+        <br>
+        <br>
+        <p class="white"> 13년 6월 산업통상자원부 산하의 한국산업기술진흥원(KIAT)를 비롯한 3개 연구개발(R&amp;D)기관 Garuda 기반 PaaS 플랫폼 구축</p>
+        <br>
+        <br>
+        <h3 class="white"> 솔루션</h3>
+        <p class="white"> IaaS 기반의 자원공유 환경, PaaS 구축, 그 상에서 운영될 수 있는 SaaS 애플리케이션 탑재</p>
+        <br>
+        <h3 class="white"> 도입효과</h3>
+        <p class="white"> 1. SW 개발자는 웹 포탈 기반 가상개발 환경으로 애플리케이션(앱)을 개발-테스트하고 제품을 앱스토어에 업로드하여
+         사용자는 앱스토어에서 필요한 앱을 내려 받아 사용하고 개발자에게 피드백을 남겨 개선가능</p>
+        <p class="white"> 2. 종전 각종 SW설치-설정 후 앱 개발환경을 구축하는 방식보다 비용 절약</p>
+        <p class="white"> 3. 기업 내에서 부서마다 비슷한 앱을 각자 개발해 비용-시간을 낭비하는 문제를 해결</p>
+        <br>
+        <br>
+
+      </article>
+      <app-box class="fourth" effects="parallax-background"></app-box>
+    </section>
+  </main>
+
+
+        </div>
+              <div class="flex2child">
+                <app-menu class="uengine-products-div right-menu-color">
+                  <a class="app-menu-item mainFont" href="#garuda-paas">
+                    <span> Garuda PaaS </span>
+                  </a>
+                  <a class="app-menu-item mainFont" href="#garuda-feature">
+                    <span> Garuda Feature </span>
+                  </a>
+                  <a class="app-menu-item mainFont" href="#value">
+                    <span> Value </span>
+                  </a>
+                  <a class="app-menu-item mainFont" href="#example">
+                    <span> 적용사례 </span>
+                  </a>
+                </app-menu>
+              </div>
+          </div>
+   </template>
+
+  <script>Polymer({properties:{is:"uengine-products",selected:{value:0},page:String}});</script>
+
+
+</dom-module>
+</body></html>

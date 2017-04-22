@@ -1,0 +1,66 @@
+<html><head></head><body><dom-module id="uengine-about-license">
+  <template id="app">
+
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+
+      .image {
+        @apply(--layout-flex);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+
+
+    </style>
+    <br>
+
+    <p class="intro mainFont">uEngine Open Source License : LGPL</p>
+    <br>
+    <div style="text-align: center">
+      <paper-card heading="주요 오픈소스SW 라이선스 비교" id="test2">
+        <paper-datatable data="{{function(data)}}" id="test1">
+          <paper-datatable-column header="라이선스 명" property="title" type="String"></paper-datatable-column>
+          <paper-datatable-column header="무료 이용가능" property="free" type="String"></paper-datatable-column>
+          <paper-datatable-column header="배포 허용가능" property="shared" type="String"></paper-datatable-column>
+          <paper-datatable-column header="소스코드 취득가능" property="get" type="String"></paper-datatable-column>
+          <paper-datatable-column header="소스코드 수정가능" property="overwrite" type="String"></paper-datatable-column>
+          <paper-datatable-column header="2차적 저작물 재공개 의무" property="reopen" type="String"></paper-datatable-column>
+          <paper-datatable-column header="독점SW와 결합가능" property="combine" type="String"></paper-datatable-column>
+        </paper-datatable>
+      </paper-card>
+    </div>
+    <br>
+        <p class="mini"> 1. 2차 저작물이 재 공개 의무가 있으나 저작물이 전체가 아닌 ("독점SW와 결합가능" 항목에 의하여) 유엔진 내의 필요에 의하여서 수정한 부분만 sf.net 등에 공개하면 됩니다.</p>
+        <p class="mini"> 2. 주로 유엔진 내의 설정파일 수준에서 수정이 이루어지기 때문에 소스코드 변경이 발생치 않으나, 관리자 화면의 스플래시 화면 수정의 요건이 발생할 수 있습니다.</p>
+        <p class="mini"> 3. 2차 저작물의 어떠한 내용도 재 공개를 원치 않은 경우 "듀얼라이센싱" 정책에 의거하여 상용화(소스비공개 권한 획득) 라이센싱을 구매할 수 있습니다.</p>
+        <p class="mini"> 4. 무비용으로 유엔진을 사용하고자 하는 경우: </p>
+        <p class="pullquotemini"> Ⅰ. 유엔진 내 수정한 소스코드를 sf.net에 공개</p>
+        <p class="pullquotemini"> Ⅱ. 유엔진 내의 소스를 수정하지 않고 사용자 화면 등에 유엔진을 사용했다는 표시를 하는 경우</p>
+        <p class="mini"> 5. 소스코드를 보호하고자 하는 경우:</p>
+        <p class="pullquotemini"> Ⅰ. 듀얼라이센싱 (상용화 라이센싱) 구매</p>
+        <br>
+
+        <p class="mini">출처 한국 저작권 위원회: http://www.olis.or.kr/osslice/guideViewComp.do</p>
+
+
+    <br>
+
+    <p>국내에 BPM이 소개된지도 약 10여년이 되어갑니다. </p>
+    <p>하지만 아직도 BPM의 도입에 대한 실질적인 효과를 얻은 혁신사례나 성공사례를 접하기 힘들고, 그또한 규모가 있는 기업이나 조직에서나 BPM에 대한 도입시도를 하고 있는 현실이라고 합니다.</p>
+
+    <br>
+    <p class="intro mainFont">Commercial Licensing</p>
+    <br>
+    <p>BPM 제품을 일반적 사용의 방식이 아닌 Commercial User방식으로 구매하여 2차 저작물의 소스코드 공개에 대한 의무가 없는 상용화에 대한 권한을 얻는 라이센싱 입니다.</p>
+    <p>Dual-Licensing 이란 기존 단일 오픈 소스 정책만을 고수하여 상용화에 대한 어떠한 방법도 허용하지 않던 순수 오픈 소스 제품들이 상업적인 활용에 방안을 모색한 것으로, "If you open, we open, Ikjkjkf you sell, we sell"이라는 단순 논리로 제공하는 것입니다.</p>
+    <br>
+
+
+   </template>
+
+  <script>Polymer({is:"uengine-about-license",properties:{data:{type:Object}},setData:function(e){var t=document.querySelector("#uengine-about-license");t.data=[{id:0,title:"Frozen yogurt",free:"159",shared:"6",get:"24",overwrite:"4",reopen:"87",combine:".14"}],t.toFixedOne=function(e){return e.toFixed(1)},t.toPercentage=function(e){return Math.round(1e4*e)/100+"%"}}});</script>
+
+
+</dom-module>
+</body></html>

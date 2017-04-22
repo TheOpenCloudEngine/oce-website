@@ -1,0 +1,33 @@
+<html><head></head><body><dom-module id="bs-timeline">
+  <link rel="import" type="css" href="/bower_components/bs-timeline/bs-timeline.css">
+  <template>
+ 		<ul class="timeline">
+        	<content></content>
+    	</ul>
+	</template>
+  <script>Polymer({is:"bs-timeline"});</script>
+</dom-module>
+
+<dom-module id="bs-timeline-entry">
+  <link rel="import" type="css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <template>
+	  	<li id="entry">
+		<div class="timeline-badge" on-tap="toggleClick">
+			<i class$="{{_computeClass(badge)}}"></i>
+		</div>
+        <iron-collapse id="colly" opened="" horizontal="">
+			<div class="timeline-panel">
+				<div class="timeline-heading">
+					<h4 class="timeline-title">{{title}}</h4>
+              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <span>{{time}}</span></small></p>
+            	</div>
+				<div class="timeline-body">
+			  		<content></content>
+            	</div>
+          	</div>
+		</iron-collapse>
+		</li>
+	</template>
+  <script>Polymer({is:"bs-timeline-entry",properties:{badge:{type:String,value:"plus",notify:!0},inverse:{type:Boolean,value:!1,observer:"inverseChanged"},opened:{type:Boolean,value:!0,notify:!0,observer:"openedChanged"},time:{notify:!0},title:{type:String,value:"Lorem Ipsum",notify:!0}},toggleClick:function(e,n,t){this.opened=!this.opened},openedChanged:function(e,n){this.set("$.colly.opened",e)},inverseChanged:function(e,n){var t=this.$.entry;e?t.className="timeline-inverted":t.className=""},_computeClass:function(e){return"glyphicon glyphicon-"+e}});</script>
+</dom-module>
+</body></html>

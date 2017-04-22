@@ -1,0 +1,59 @@
+
+<dom-module id="uengine-about-architecture">
+  <template>
+
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+
+      .image {
+        @apply(--layout-flex);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+
+     
+    </style>
+    <br>
+   
+    <p class="weight4 mainFont">유엔진 BPM은 어떠한 아키텍처적 장점이 있습니까?</p>
+    
+    <br>
+    <br>
+    <div style="text-align: center">
+      <img class="image" src="./architecture_img.gif">
+    </div>
+    <br>
+    <p class="intro mainFont">BPM도입에서의 고려사항 중 기술적인 내용과 관계있는 사항은, 얼마나 용이하게 커스터마이징 가능한가와 우리 조직 시스템 환경에 부담없이 쉽게 융합될 수 있느냐, 입니다.</p>
+
+    <br>
+
+    <p>이는, 조직도 찾기 로직의 분리, 액티비티 유형의 컴포넌트 인터페이스화, 엔진상 발생 이벤트의 리스너 등의 컴포넌트 인터페이스를 제공하여 BPM Hot-spot 서비스(고정부위)와 BPM 커스터마이징 빈발요소(가변부위)를 정제한 경계를 형성하며 고정부위의 서비스로서, 리플렉션을 통한 액티비티 컴포넌트 UI의 자동생성, 인스턴스 데이터의 관리, MQ처리, OLAP분석처리등의 기능을 기반 제공함으로서 개발자로 하여금 BPM 기반 개발에 있어 BPM하부 기술에 대한 어떠한 고민도 하지 않더라도 커스터마이징을 용이하게 하는 접근방식입니다.</p>
+
+    <br>
+
+    <p>이에는 다음과 같이 꺼려할만한 실패요인과 리스크가 존재하기 때문입니다.</p>
+
+    <br>
+
+    <p>이러한 접근방식은 이미 Spring Framework 등, 다양한 프레임워크에서의 접근방식을 BPM기반 시스템 개발의 영역에 대입한 것으로, 일반적으로 패키지 기반으로만 제공되어 Server/Client 방식의 연계만을 허용하는 BPM제품에서의 리스크를 대폭 줄이고 가용성을 최대화하는 기술적 기반이 됩니다.</p>
+  
+    <br>
+   </template>
+
+  <script>
+    Polymer({
+      
+ 
+      properties:{
+       is: 'uengine-about-architecture',
+        page: String
+      }
+    });
+
+ 
+    
+  </script>
+
+
+</dom-module>

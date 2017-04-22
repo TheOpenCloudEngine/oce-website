@@ -1,0 +1,42 @@
+<html><head><link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-form/iron-form.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+
+</head><body><dom-module id="paper-datatable-edit-dialog">
+	<template>
+		<custom-style>
+			<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
+			<style is="custom-style">
+				:host{
+					position: absolute;
+					z-index: 10;
+					display: none;
+				}
+				:host([visible]){
+					display: block;
+				}
+				paper-material {
+					position:absolute;
+					left:0px;
+					top:0px;
+					right:0px;
+					min-width: 100px;
+					display: inline-block;
+					padding: 4px 24px;
+					background: var(--paper-datatable-edit-dialog-color, var(--paper-grey-50));
+					border-radius: 2px;
+					box-sizing: border-box;
+					@apply --paper-datatable-edit-dialog;
+				}
+			</style>
+		</custom-style>
+		<paper-material id="material" elevation="1">
+			<form is="iron-form" id="form" on-iron-form-presubmit="dismiss">
+				<slot></slot>						
+			</form>
+		</paper-material>
+	</template>
+	<script>Polymer({is:"paper-datatable-edit-dialog",properties:{positionedRelativeTo:{type:Element,observer:"setLocationRelativeTo"},visible:{type:Boolean,reflectToAttribute:!0}},behaviors:[Polymer.IronResizableBehavior],listeners:{"iron-resize":"setLocationRelativeTo"},ready:function(){this.addEventListener("keyup",function(e){var t=Polymer.dom(e);13==e.keyCode&&"textarea"!==t.path[0].nodeName.toLowerCase()&&this.dismiss()}.bind(this)),document.body.addEventListener("click",function(e){var t=Polymer.dom(e).path;this.positionedRelativeTo&&t.indexOf(this)==-1&&t.indexOf(this.positionedRelativeTo)==-1&&this.dismiss(e)}.bind(this))},dismiss:function(e){this.set("visible",void 0),this.positionedRelativeTo=void 0,e&&e.preventDefault()},findFocus:function(){var e=Polymer.dom(this).querySelector("paper-input");e&&e.$.input.focus();var e=Polymer.dom(this).querySelector("paper-textarea");if(e){var t=e.$.input.$.textarea.value.length;e.$.input.$.textarea.focus(),e.$.input.$.textarea.setSelectionRange(t,t)}var i=Polymer.dom(this).querySelector("input");i&&i.focus()},setLocationRelativeTo:function(){if(this.positionedRelativeTo){this.set("visible",!0),this.revealTime=Date.now();for(var e=this.parentNode;e!==window;)if("#document-fragment"==e.nodeName)e=e.host;else{if("relative"==getComputedStyle(e).position||"absolute"==getComputedStyle(e).position)break;e=Polymer.dom(e).parentNode}var t=e.getBoundingClientRect(),i=this.positionedRelativeTo.getBoundingClientRect();this.style.top=i.top-2-t.top+"px",this.style.left=i.left-t.left+"px",this.style.right=Math.max(t.right-i.right,0)+"px",this.$.material.style.minHeight=i.height+2+"px"}}});</script>
+</dom-module></body></html>

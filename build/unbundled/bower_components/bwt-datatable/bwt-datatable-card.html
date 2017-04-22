@@ -1,0 +1,161 @@
+<html><head><link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="./bwt-datatable.html">
+
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-progress/paper-progress.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../iron-scroll-target-behavior/iron-scroll-target-behavior.html">
+
+<script src="weakCache.js"></script>
+</head><body><dom-module id="paper-datatable-card">
+	<template>
+		<custom-style>
+			<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
+			<style is="custom-style">
+				:host {
+					display: block;
+					@apply --paper-font-common-base;
+				}
+				paper-material{
+					border-radius: 2px;
+					background: white;
+					@apply --paper-datatable-card;
+				}
+				#selectionToolbar{
+					display: none;
+					background: var(--paper-datatable-selection-toolbar-color, var(--paper-pink-50));
+					@apply --paper-datatable-selection-toolbar;
+					padding:0px 12px 0px 24px;
+				}
+				#selectionToolbar .selectionHeader, #selectionToolbar .toolbar ::content paper-icon-button{
+					color: var(--paper-datatable-selection-toolbar-text-color, var(--accent-color));
+				}
+				#selectionToolbar[data-visible]{
+					display: flex;
+				}
+				#selectionToolbar .toolbar{
+					display: none;
+				}
+				#selectionToolbar .toolbar[data-visible]{
+					display: flex;
+				}
+				#toolbar-main{
+					padding-right: 12px;
+				}
+				#topBlock{
+					height:64px;
+					padding:0px 6px 0px 24px;
+					position:relative;
+					@apply --paper-datatable-top-toolbar;
+				}
+				#topBlock .header{
+					font-size:20px;
+					@apply --paper-font-common-base;
+					color: var(--paper-datatable-top-toolbar-text-color);
+				}
+				#selectionToolbar > ::content paper-icon-button, .toolbar > ::content paper-icon-button,
+				#selectionToolbar > ::content paper-icon, .toolbar > ::content paper-icon,
+				#selectionToolbar > ::content iron-icon, .toolbar > ::content iron-icon{
+					color: var(--paper-datatable-selection-toolbar-icon-color, rgba(0,0,0,.54));
+				}
+				#toolbar-main ::content paper-icon-button, #toolbar-main ::content paper-icon, #toolbar-main ::content iron-icon{
+					color: var(--paper-datatable-top-toolbar-icon-color);
+				}
+				#topBlock .selectionHeader{
+					font-size:16px;
+					@apply --paper-font-common-base;
+				}
+				#bottomBlock{
+					height:56px;
+					padding:0px 6px;
+					border-top: 1px solid var(--paper-datatable-divider-color, var(--divider-color));
+					color: var(--paper-datatable-navigation-bar-text-color, rgba(0,0,0,.54));
+					align-items: center;
+					font-size: 12px;
+					text-align: center;
+					font-weight: 500;
+					@apply --paper-datatable-navigation-bar;
+				}
+				#bottomBlock paper-dropdown-menu{
+					vertical-align: middle;
+					margin-right: 18px;
+					--paper-input-container-underline: {
+						display: none;
+					};
+					--paper-input-container-input: {
+						text-align: right;
+						font-size: 12px;
+						font-weight: 500;
+						color: var(--paper-datatable-navigation-bar-text-color, rgba(0,0,0,.54));
+					};
+					--paper-dropdown-menu-icon: {
+						color: var(--paper-datatable-navigation-bar-text-color, rgba(0,0,0,.54));
+					};
+					
+				}
+				.fixedToTop {
+					background: #fff;
+					position: fixed !important;
+					box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+					top: 0;
+					z-index: 1;
+				}
+			</style>
+		</custom-style>
+		<paper-material elevation="1">
+			<div class="horizontal center layout" id="topBlock">
+				<div class="flex header">
+					<span>[[header]]</span>
+				</div>
+				<div id="toolbar-main" class="toolbar">
+					<slot name="toolbar-main"></slot>
+				</div>
+				<div id="selectionToolbar" class="horizontal center layout fit" data-visible$="[[_selectedToolbarVisible]]">
+					<div class="flex selectionHeader">
+						<span>[[_numberselectedIds]]</span> item selected
+					</div>
+					<div class="toolbar" data-visible$="[[_singleSelectToolbarVisible]]">
+						<slot name="toolbar-select-single"></slot>
+					</div>
+					<div class="toolbar" data-visible$="[[_multiSelectToolbarVisible]]">
+						<slot name="toolbar-select-multi"></slot>
+					</div>
+					<div class="toolbar" data-visible="">
+						<slot name="toolbar-select"></slot>						
+					</div>
+				</div>
+			</div>
+			<div>
+				<slot></slot>						
+			</div>
+			<div class="horizontal center layout" id="bottomBlock">
+				<div class="flex"></div>
+				<span>Rows per page:</span>
+				<paper-dropdown-menu no-label-float="" style="width: 68px">
+					<paper-menu class="dropdown-content" selected="{{pageSize}}" attr-for-selected="value">
+						<template is="dom-repeat" items="[[pageSizeOptions]]">
+							<paper-item value="[[item]]">[[item]]</paper-item>
+						</template>
+					</paper-menu>
+				</paper-dropdown-menu>
+				<span>
+					<span>[[_getRangeStart(page, pageSize)]]</span>-<span>[[_getRangeEnd(page, pageSize, numberOfItems)]]</span> of&nbsp;<span>[[numberOfItems]]</span>
+				</span>
+				<paper-icon-button icon="datatable:first-page" on-tap="firstPage" disabled="[[_prevPageDisabled(page)]]"></paper-icon-button>
+				<paper-icon-button icon="datatable:prev-page" on-tap="prevPage" disabled="[[_prevPageDisabled(page)]]"></paper-icon-button>
+				<paper-icon-button icon="datatable:next-page" on-tap="nextPage" disabled="[[_nextPageDisabled(page, pageSize, numberOfItems)]]"></paper-icon-button>
+				<paper-icon-button icon="datatable:last-page" on-tap="lastPage" disabled="[[_nextPageDisabled(page, pageSize, numberOfItems)]]"></paper-icon-button>
+			</div>
+		</paper-material>
+	</template>
+
+	<script>!function(){"use strict";Polymer({is:"paper-datatable-card",properties:{header:String,dataSource:Object,pageSize:{type:Number,value:10,notify:!0},pageSizeOptions:{type:Array,value:[5,10,25,100],notify:!0},page:{type:Number,value:1,notify:!0},_disableSave:{type:Boolean,value:!1},_datatable:{type:Object},default:{type:Object},idProperty:{type:String,value:"id"},selectedIds:{type:Array,notify:!0,value:[]},_cacheUsed:{type:Boolean},_sortDirection:{type:String,value:"asc"},_sortProperty:{type:String},_headerDistanseToTop:{type:Number},headerFixed:{type:Boolean,reflectToAttribute:!0,value:!1},_selectedToolbarVisible:Boolean,_singleSelectToolbarVisible:Boolean,_multiSelectToolbarVisible:Boolean,_numberselectedIds:Number},ready:function(){this._datatable=Polymer.dom(this).querySelector("paper-datatable"),this._datatable.data=[],this._datatable.addEventListener("data-changed",this._triggerSave.bind(this)),this._datatable.addEventListener("sort",this._handleSort.bind(this)),this._datatable.addEventListener("selection-changed",this._setSelectedIds.bind(this)),this._datatable.addEventListener("selection-changed",this._setSelectedToolbarVisible.bind(this)),this._datatable.addEventListener("toggle-all",this._toggleAll.bind(this)),this._datatable._setPartialSelection=function(){},this.set("selectedIds",[]),this.set("_sortProperty",this.idProperty)},behaviors:[Polymer.IronResizableBehavior,Polymer.IronScrollTargetBehavior],listeners:{"iron-resize":"_resizeHandler"},observers:["retrieveVisibleData(dataSource, pageSize, page, _datatable, _sortDirection, _sortProperty)","_setNumberOfItems(dataSource.length)","_createCache(dataSource.queryForIds)"],_scrollHandler:function(){if(this.headerFixed){var e=Polymer.dom(this).querySelector("paper-datatable"),t=Polymer.dom(this.root).querySelector("#topBlock"),i=getComputedStyle(t);this._scrollTop>this._headerDistanseToTop&&!t.classList.contains("fixedToTop")?(t.style.width=i.width,e.style.paddingTop=t.offsetHeight+"px",t.classList.add("fixedToTop")):this._scrollTop<this._headerDistanseToTop&&t.classList.contains("fixedToTop")&&(t.style.width="auto",t.style.top=0,e.style.paddingTop=0,t.classList.remove("fixedToTop"))}},_resizeHandler:function(){if(this.headerFixed&&!this._headerDistanseToTop){var e=Polymer.dom(this.root).querySelector("#topBlock");this._headerDistanseToTop=e.getBoundingClientRect().top}},_createCache:function(){this._cacheUsed=!0,this._cache=new WeakCache(100)},_triggerSave:function(e){if(this.dataSource&&!this._disableSave&&e.detail.path){var t=e.detail.path.split(".");if(2==t.length)return;var i=(t.shift(),t.shift()),s=t.shift();this.debounce("save"+i+s,function(){var a=e.detail.value,r=this._datatable.get(["data",i]);if(!r)return console.warn("Some elements (like the <google-map>) will trigger erroneous change notifications. Sadly this causes the paper-datatable to error out when browsing too quickly.");var o=(r[this.idProperty],JSON.parse(JSON.stringify(r)));if(t.length>0){a=o[s];var l=this.dataSource.set(o,s,a)}else var l=this.dataSource.set(o,s,a);this._datatable.set("progress",!0),l.then(function(e){if("boolean"==typeof e){if(e!==!0)throw new Error("failure")}else console.warn("re-implement");this._datatable.set("progress",!1)}.bind(this),function(e){throw new Error("failure")}.bind(this)).catch(function(){console.warn("saving failed"),this._datatable.set("progress",!1)}.bind(this))},1e3)}},_handleSort:function(e){this.dataSource&&(e.preventDefault(),this.firstPage(),this._sortProperty=e.detail.sort.property,this._sortDirection=e.detail.sort.direction)},retrieveVisibleData:function(){var e=this;this.debounce("visibleData",function(){this._disableSave=!0;var t=function(e){this._datatable.deselectAll(!1),this._datatable.splice("data",0,this._datatable.data.length);var t=["data"].concat(e);this._datatable.push.apply(this._datatable,t),this._setSelectedKeysOnDatatable(),this._datatable.set("progress",!1),this._disableSave=!1,this.async(function(){e.forEach(function(e){this._cache.set(e[this.idProperty],e)}.bind(this))})}.bind(this),i=[{property:this._sortProperty,direction:this._sortDirection},this.page,this.pageSize];this._datatable.set("progress",!0),"queryForIds"in this.dataSource?this.dataSource.queryForIds.apply(this.dataSource,i).then(function(i){var s=[],a=0,r=function(){if(a++,2==a){var r=i.map(function(t){return s.find(function(i){return i[e.idProperty]==t})});t(r)}}.bind(this),o=i.filter(function(t){return e._cache.has(t)});if(o.length){var l=[];o.forEach(function(e){l.push(this._cache.get(e))}.bind(this)),s=s.concat(l),r()}else r();var n=i.filter(function(t){return!e._cache.has(t)});n.length?this.dataSource.getByIds(n).then(function(e){s=s.concat(e),r()}):r()}.bind(this)):this.dataSource.get.apply(this.dataSource,i).then(function(e){t(e)})},0)},_getRangeStart:function(){return(this.page-1)*this.pageSize},_getRangeEnd:function(){return Math.min(this.page*this.pageSize,this.numberOfItems)},nextPage:function(){this.set("page",this.page+1)},prevPage:function(){this.set("page",this.page-1)},firstPage:function(){this.set("page",1)},lastPage:function(){this.set("page",Math.ceil(this.numberOfItems/this.pageSize))},_prevPageDisabled:function(){return 1==this.page},_nextPageDisabled:function(){return this.page*this.pageSize>=this.numberOfItems},_setSelectedToolbarVisible:function(){this._selectedToolbarVisible=this.selectedIds.length>0,this._singleSelectToolbarVisible=1==this.selectedIds.length,this._multiSelectToolbarVisible=this.selectedIds.length>1,this._numberselectedIds=this.selectedIds.length,this._datatable._partialSelection=this.selectedIds.length>0},_setSelectedIds:function(e){e.detail.selected&&(this._datatable.multiSelection||this.splice("selectedIds",0,1),e.detail.selected.forEach(function(e){var t=this._datatable._getByKey(e)[this.idProperty];this.selectedIds.indexOf(t)==-1&&this.push("selectedIds",t)}.bind(this))),e.detail.deselected&&e.detail.deselected.forEach(function(e){var t=this._datatable._getByKey(e)[this.idProperty];this.selectedIds.indexOf(t)>-1&&this.splice("selectedIds",this.selectedIds.indexOf(t),1)}.bind(this))},_setSelectedKeysOnDatatable:function(){this._datatable.data.forEach(function(e){var t=e[this.idProperty];this.selectedIds.indexOf(t)>-1&&this._datatable.select(e,!1)}.bind(this))},_setNumberOfItems:function(){this.set("numberOfItems",this.dataSource.length)},_toggleAll:function(e){this.dataSource&&"queryForIds"in this.dataSource&&(this.selectedIds.length===this.dataSource.length?this.deselectAll():(this.deselectAll(),this._datatable.set("progress",!0),this.dataSource.queryForIds(void 0,1,this.dataSource.length).then(function(e){this._datatable.set("progress",void 0),this.push.apply(this,["selectedIds"].concat(e)),this._setSelectedKeysOnDatatable(),this._setSelectedToolbarVisible()}.bind(this))),e.preventDefault())},deselectAll:function(){this._datatable.deselectAll(!1),this.splice("selectedIds",0,this.selectedIds.length),this._setSelectedToolbarVisible()},select:function(e){this.push("selectedIds",e),this._setSelectedKeysOnDatatable(),this._setSelectedToolbarVisible()}})}();</script>
+
+</dom-module>
+</body></html>

@@ -1,0 +1,53 @@
+
+
+
+
+<!-- // CSS Reset – http://meyerweb.com/eric/tools/css/reset/ -->
+
+    
+
+
+<dom-module id="uengine-about-bpm">
+  <template>
+
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+
+      .image {
+        @apply(--layout-flex);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        margin-top: -10px;
+        margin-bottom: 35px;
+
+      }
+
+
+     
+    </style>
+
+    <br>
+    <br>
+    <div style="text-align: center">
+      <img class="image" src="./bpmmethod.gif">
+    </div>
+   
+   </template>
+
+  <script>
+    Polymer({
+      
+ 
+      properties:{
+       is: 'uengine-about-bpm',
+        page: String
+      }
+    });
+
+ 
+    
+  </script>
+
+
+</dom-module>

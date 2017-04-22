@@ -1,0 +1,62 @@
+
+
+<dom-module id="uengine-about-opensource">
+  <template>
+
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+
+      .image {
+        @apply(--layout-flex);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+
+     
+    </style>
+    <br>
+   
+    <p class="weight4 mainFont">왜 유엔진에서 BPM 제품을 오픈소스화 한 것인가요?</p>
+    
+    <br>
+    <br>
+    <div style="text-align: center">
+      <img class="image" src="./OpenSourceimg.gif">
+    </div>
+    <br>
+    <p>국내에 BPM이 소개된지도 약 10여년이 되어갑니다. </p>
+    <p>하지만 아직도 BPM의 도입에 대한 실질적인 효과를 얻은 혁신사례나 성공사례를 접하기 힘들고, 그또한 규모가 있는 기업이나 조직에서나 BPM에 대한 도입시도를 하고 있는 현실이라고 합니다.</p>
+  
+    <br>
+    <p class="intro mainFont">이에는 다음과 같이 꺼려할만한 실패요인과 리스크가 존재하기 때문입니다.</p>
+    <br>
+    <p class="pullquote">- SW라이센스비 중심의 프로젝트 예산구조로 개발 방법론, 조직 문화적인 변화에 대한 계획과 컨설팅에 대한 예산분배가 어려운 구조이다.</p>
+
+    <p class="pullquote">- BPMS 프로젝트는 많은 커스터마이징 요건이 발생하게 되는데 일반적인 패키지 기반 BPM제품은 이러한 커스터마이징이 어려워 높은 초기 수정 비용을 초래한다.</p>
+
+    <p class="pullquote">- BPM은 "생물체"와 같은 특성을 지니며, 지속적으로 확장 개선 운용되어야 하는데 BPM벤더들은 그 특성을 이용하여 초기 비용은 낮게 진입하고 유지보수 비용을 높게 받으려 한다.</p>
+    <br>
+    <p>이러한 문제들에 있서 유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고, 이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써, 컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성, 소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용하여 향후 기술종속에 대한 우려를 없앤다는 것입니다.</p>
+    
+    <br>
+
+  
+   </template>
+
+  <script>
+    Polymer({
+      
+ 
+      properties:{
+       is: 'uengine-about-opensource',
+        page: String
+      }
+    });
+
+ 
+    
+  </script>
+
+
+</dom-module>
