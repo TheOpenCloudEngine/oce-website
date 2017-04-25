@@ -1,11 +1,19 @@
 
+<link rel="import" href="./uengine-home-timeline/uengine-home-timeline.html">
+<link rel="import" href="./uengine-home-svg/uengine-home-svg.html">
+  <link rel="import" href="../uengine-products/uengine-products.html">
+  <link rel="import" 
+        href="/bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
 <dom-module id="uengine-products">
   <template>
 
-
+ <style include="iron-flex"></style>
    <style is="custom-style">
 
-
+paper-card { max-width: 1000px; min-width: 250px; margin: 10px; }
 
     app-toolbar {
       font-size: 18px;
@@ -62,7 +70,7 @@
 
     .first {
       --app-box-background-front-layer: {
-        background-image: url(/Image/paas.png);
+
         background-position: bottom;
         padding-bottom: 120px;
         margin-top: -20px;
@@ -71,7 +79,7 @@
     }
     .second {
       --app-box-background-front-layer: {
-        background-image: url(/Image/paas2.png);
+        background-image: url(images/products.png);
         background-position: bottom;
         padding-bottom: 120px;
         margin-top: -20px;
@@ -81,7 +89,7 @@
 
     .third {
       --app-box-background-front-layer: {
-        background-image: url(/Image/paas.jpg);
+        background-image: url(images/cases.png);
         background-position: bottom;
         padding-bottom: 120px;
         margin-top: -20px;
@@ -91,7 +99,7 @@
 
     .fourth {
       --app-box-background-front-layer: {
-        
+
         background-position: bottom;
         padding-bottom: 120px;
         margin-top: -20px;
@@ -204,118 +212,104 @@
 
 
 
-
-
   </style>
-
       <div id = "body-content" class="container flex-horizontal-with-ratios">
         <div class="flex10child">
             <main>
-    <section id="garuda-paas" style="background-color: #FCF3CF">
-      <article >
-        <hr />
-        <h2 class="mainFont">Garuda PaaS</h2>
-        <br>
-        <p class="mainFont">Garuda PaaS(Platform as a Service)는 Saas의 개념을 개발 플랫폼에도 확장한 방식으로, 개발을 위한 인프라와 플랫폼을 개발팀 별로 구축할 필요 없이 웹프라우저에서 쉽게 쓸 수 있게 하는 Private Platform as a Service 입니다.</p>
-      </article>
-      <app-box class="first" effects="parallax-background">
-      </app-box>
-    </section>
 
-    <section id="garuda-feature" style="background-color: #FAE5D3">
+    <section id="productAndService">
       <article>
         <hr />
-        <h2 class="mainFont">Garuda Feature</h2>
+        <h2 class="mainFont">서브프로젝트</h2>
         <br>
-        <br>
-        <p class="red">Customer Self-Service-Cheap Offerings by sharing single instance+multi-tenancy</p>
-        <p class="red-background">customer Potal and Application Store</p>
-        <br>
-        <br>
-        <p class="orange">Application EcoSystem-Application Store and Developer Portal</p>
-        <p class="orange-background">Application LifecycleManagement</p>
-        <br>
-        <br>
-        <p class="cobalt-blue">Business Continuity-Auto Scaling(Out/In)</p>
-        <p class="cobalt-blue-background">Auto Failover</p>
-        <br>
-        <br>
-        <p class="green">Value-added Business Process-Process Mashup Platform(Model Platform)</p>
-        <p class="green-background">Cloud Service Brokerage</p>
-      </article>
-      <app-box class="second" effects="parallax-background"></app-box>
-    </section>
 
-    <section id="value" style="background-color: #8fcdf2">
-      <article>
-        <hr />
-        <h2 class="white">Value</h2>
-        <br>
-        <br>
-        <p class="brown-background">NoOps Team</p>
-        <p-mini>PaaS는 개발조직에게 통합 미들웨어와 개발 서비스를 알아서 관리해준다. 개발환경의 생성, 디플로이, 관리의 환경에 대한 좀더 추상화된 환경을
-        제공합니다. 이를 통하여 시스템 운영자가 없이 개발에 몰두 할 수 있는 조직인 'DevOps' 혹은 'NoOps'조직을 만들 수 있습니다</p>
-        <br>
-        <p class="brown-background">일관성 있는 애플리케이션 생명주기 관리</p>
-        <p-mini>Garuda PaaS는 개발 서비스에 대한 쉬운 프로비져닝을 할 수 있게 해줍니다 - 빌드, 테스트 그리고 형상관리 저장소 서비스 등을 - 어떠한 표준적이지
-         않은 환경에서 개발되었을 때 발생할 수 있는 비효율성, 오류, 비일관성 등의 문제를 개발 라이프사이클 전반에 있어서 막아줍니다. 이로서 개발과 운영조직은
-         SW 라이프사이클 관리를 위한 SW 형상과 버전을 트래킹하는 일관성 있는 플랫품을 갖추게 됩니다. </p>
-        <br>
-        <p class="brown-background">서비스 프로비져닝의 비용 절감</p>
-        <p-mini>Garuda Enterprise App Store 에서는 개발된 앱들을 스테이징에서, 운영, 확장까지의 애플리케이션 프로비져닝도 laaS를 직접 다룰 필요 없이 버튼 클릭
-        한번으로 조직에서 사용할 수 있게 준비시켜줍니다. 사용할 애플리케이션에 대한 맞춤화는 셀프세비스 포탈에서 쉽게 설정하여 사용할 수 있습니다.</p>
-        <br>
-        <p class="brown-background">서비스 통합 비용 절감</p>
-        <p-mini>전통적으로 애플리케이션들을 통합 연동하는 것은 많은 비용과 시간이 필요하다. Garuda에서는 모든 미들웨어는 쉽게 관리되고 연결될 수 있도록 미리
-        설정되어 있기 때문에 앱스토어에 한번 등록된 앱들은 쉽게 RESTful과 Web Service의 형태와 BPM 플랫폼에 의하여 프로세스 적으로 통합될 수 있다.</p>
-      </article>
-      <app-box class="third" effects="parallax-background"></app-box>
-    </section>
 
-    <section id="example" style="background-color: #6dbcc3">
-      <article>
-        <hr />
-        <h2 class="white">적용사례</h2>
-        <br>
-        <br>
-        <p class="white"> 13년 6월 산업통상자원부 산하의 한국산업기술진흥원(KIAT)를 비롯한 3개 연구개발(R&D)기관 Garuda 기반 PaaS 플랫폼 구축</p>
-        <br>
-        <br>
-        <h3 class="white"> 솔루션</h3>
-        <p class="white"> IaaS 기반의 자원공유 환경, PaaS 구축, 그 상에서 운영될 수 있는 SaaS 애플리케이션 탑재</p>
-        <br>
-        <h3 class="white"> 도입효과</h3>
-        <p class="white"> 1. SW 개발자는 웹 포탈 기반 가상개발 환경으로 애플리케이션(앱)을 개발-테스트하고 제품을 앱스토어에 업로드하여
-         사용자는 앱스토어에서 필요한 앱을 내려 받아 사용하고 개발자에게 피드백을 남겨 개선가능</p>
-        <p class="white"> 2. 종전 각종 SW설치-설정 후 앱 개발환경을 구축하는 방식보다 비용 절약</p>
-        <p class="white"> 3. 기업 내에서 부서마다 비슷한 앱을 각자 개발해 비용-시간을 낭비하는 문제를 해결</p>
-        <br>
-        <br>
+
 
       </article>
-      <app-box class="fourth" effects="parallax-background"></app-box>
+
+
+          <div class="layout">
+
+<paper-card heading="Beluga PaaS Engine" i mage="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+  <div class="card-content">
+    도커와 메소스를 응용한 트위터에서 검증된 그리드엔진을 기반한 PaaS. 도커가 제공하는 다양한 어플리케이션 구동 환경을 지원. 애플리케이션 소스코드에서 도커이미지를 생성시킨 후 서비스를 구동 시킨 후 장애 발생시 오토페일오버(Auto-Failover), 오토스케일(Auto-Scale), 무정지재배포를 목표로 함.
+    <iframe src="https://player.vimeo.com/video/145980366" width="100%" height="365" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/145980366">OCE PaaS platform - beluga - Provisioning demo</a> from <a href="https://vimeo.com/user7610444">jinyoung jang</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+    <br><br>
+     <p align="right">Developed and Supported by 지앤클라우드, 유엔진<br>Serviced by 엔키소프트 </p>
+  </div>
+  <div class="card-actions">
+    <paper-button>Share</paper-button>
+    <paper-button><a href="http://github.com/TheOpenCloudEngine/beluga">Explore!</a></paper-button>
+  </div>
+</paper-card>
+
+<paper-card heading="OCE-IAM" i mage="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+  <div class="card-content">
+    사용자 인증을 한번한 후 JWT 토큰을 발행함. 발행한 토큰은 여러개의 분산된 마이크로서비스들을 넘나들어 서비스와 데이터를 조합하여야 하는 AJAX 웹 클라이언트 구현에 적합함. OCE-GW와 함께 인증처리를 수행하여 원천 마이크로서비스들을 인증형태 서비스로 빠르게 포장시킬 수 있음.
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/eobfHgLBGAQ" frameborder="0" allowfullscreen></iframe>
+    <br><br>
+     <p align="right">Developed and Supported by 유엔진 </p>
+  </div>
+  <div class="card-actions">
+    <paper-button>Share</paper-button>
+    <paper-button><a href="https://github.com/TheOpenCloudEngine/uEngine-iam">Explore!</a></paper-button>
+  </div>
+</paper-card>
+
+<paper-card heading="OCE-GW" i mage="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+  <div class="card-content">
+    성공적인 SaaS는, 마이크로 서비스들의 조합으로 구성되는 MSA 아키텍처를 기반하여 가용성과 유연한 배포, DevOps 환경을 제공하여야 한다. 이를 위하여 분산된 여러 마이크로서비스들의 접근제어를 IAM 과 서비스들의 다양한 변화와 적용을 위한 API Gateway가 필요하다. Open API 로 오픈될 서비스들을 포장하여 다양한 변화와 적용을 위한 Aggregation, Integration, Dispatching 등의 Orchestration을 유연하게 하는데 활용함. 
+API 래핑 / 리퍼블리싱 / 포워딩: 기존 서비스를 포장하여 새로운 서비스 API로 생성
+동적 서비스 디스커버리를 위한 API 문서 자동화 및 WADL (Web Application Description Language) 생성
+API 통합: 하나 이상의 기존 서비스를 새로운 서비스로 Aggregate 하여 새로운 API 생성
+API Data Mapping: API 파라미터 구조가 다른 API 를 적응시키기 위한 데이터 매핑/트랜스모페이션
+조건부 API 배분: 호출된 서비스의 사용자 identity 따른 테넌트별 타겟 서비스 분개 (예: 고객사 마다의 데이터베이스, 혹은 다른 종류의 파일시스템 사용시 자동 분개)
+API Advice:  호출된 서비스에 대한 인증/인가/미터링 등의 공통된 처리
+Workflow:  Gateway 는 여러 입출력 단계를 통하여 앞서의 Aggregation, Integration, Data Mapping 등의 연결된 workflow 가 구성될 수 있음.
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/SQYoAHll_ok" frameborder="0" allowfullscreen></iframe>
+    <br><br>
+     <p align="right">Developed and Supported by 유엔진 </p>
+  </div>
+  <div class="card-actions">
+    <paper-button>Share</paper-button>
+    <paper-button><a href="https://github.com/TheOpenCloudEngine/uengine-api-gw">Explore!</a></paper-button>
+  </div>
+</paper-card>
+
+
+<paper-card heading="OCE-Billing" alt="Emmental">
+  <div class="card-content">
+    그루폰이 사용하는 빌링엔진인 KillBill을 사용하여 만든 빌링/미터링 도구. 킬빌엔진을 그냥 사용시 API와 어려운 UI를 통하여 관리하던 것을, 웹기반 플랜 모델러, 인보이스 폼 생성기, 통계 분석 도구등의 UI를 제공함. 또한 동적 카탈로그, 마켓플레이스 구축을 위한 플러그인 과금 모델 등의 확장 작업을 수행한 결과. OCE-IAM/GW 와 연동되어 통합적으로 적용시 별도 미터링을 구성하지 않아도 테넌트를 바로 식별, 사용량을 측정하고 인보이스를 발행하는 통합 오퍼레이션이 가능함. 국내 다양한 서비스에 적용중.
+    <br><br>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/PL9F7S6sG1A" frameborder="0" allowfullscreen></iframe>
+     <p align="right">Developed and Supported by 유엔진 </p>
+  </div>
+  <div class="card-actions">
+    <paper-button>Share</paper-button>
+    <paper-button><a href="https://github.com/TheOpenCloudEngine/uEngine-bill">Explore!</a></paper-button>
+  </div>
+</paper-card>
+
+<paper-card heading="metaworks" i mage="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+  <div class="card-content">
+    자바클래스의 메타데이터를 추출하여 애플리케이션의 폼, 그리드 등을 생성. 생성 타겟은 Html5+jQuery, Polymer, Vue.js (계획) 가 대상. 멀티테넌시 애플리케이션의 객체관리를 통한 테넌트별 설정된 객체의 추가속성에 반응하는 UI, 그리드 처리를 가능케함. POJO 프레임워크이기 때문에 Spring, JPA와 혼합하여 사용시, 테넌트별 SQL처리, 데이터 접근 처리를 할 수 있음. 샘플애플리케이션인 <a href="http://github.com/TheOpenCloudEngine/micro-service-architecture">마이크로서비스아키텍처</a> 를 참고
+    <br><br>
+     <p align="right">Developed and Supported by 유엔진 </p>
+  </div>
+  <div class="card-actions">
+    <paper-button>Share</paper-button>
+    <paper-button><a href="http://github.com/TheOpenCloudEngine/metaworks">Explore!</a></paper-button>
+  </div>
+</paper-card>
+
+</div>
     </section>
-  </main>
 
 
-        </div>
-              <div class="flex2child">
-                <app-menu class="uengine-products-div right-menu-color" >
-                  <a class="app-menu-item mainFont" href="#garuda-paas">
-                    <span> Garuda PaaS </span>
-                  </a>
-                  <a class="app-menu-item mainFont" href="#garuda-feature">
-                    <span> Garuda Feature </span>
-                  </a>
-                  <a class="app-menu-item mainFont" href="#value">
-                    <span> Value </span>
-                  </a>
-                  <a class="app-menu-item mainFont" href="#example">
-                    <span> 적용사례 </span>
-                  </a>
-                </app-menu>
-              </div>
-          </div>
+
+</main>
    </template>
 
   <script>
@@ -324,12 +318,12 @@
 
       properties:{
        is: 'uengine-products',
-        selected:{
-          value: 0
-        },
+
         page: String
 
-      }
+      },
+
+
     });
   </script>
 

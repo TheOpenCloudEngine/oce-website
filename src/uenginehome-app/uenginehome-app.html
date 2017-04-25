@@ -1,18 +1,10 @@
 
   <!-- menu  -->
 
-  <link rel="import" href="../uengine-about/uengine-about.html">
-  <link rel="import" href="../uengine-about/uengine-about-opensource.html">
-  <link rel="import" href="../uengine-about/uengine-about-bpm.html">
-  <link rel="import" href="../uengine-about/uengine-about-architecture.html">
-  <link rel="import" href="../uengine-about/uengine-about-functionality.html">
-  <link rel="import" href="../uengine-about/uengine-about-license.html">
-  <link rel="import" href="../uengine-case-studies/uengine-case-studies.html">
-  <link rel="import" href="../uengine-head-image/uengine-head-image.html">
   <link rel="import" href="../uengine-home/uengine-home.html">
-  <link rel="import" href="../uengine-products/uengine-products.html">
-  <link rel="import" href="../uengine-about/uengine-about-license.html">
-  <link rel="import" href="../youtube-box/youtube-box.html">
+  <link rel="import" href="../oce-events.html">
+  <link rel="import" href="../oce-sampler.html">
+  <link rel="import" href="../oce-docs.html">
 
 
 <dom-module id="uenginehome-app">
@@ -167,30 +159,42 @@
             </div>
          </paper-button>
 
+
+          <!--main menu: Event  -->
+
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Reference Architecture" head-background-color="#ad1457" isflex2child="false">
+        
+            <div>
+              <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
+              <span> Sample App</span>
+            </div>
+          </paper-button>
+
+
           <!--main menu: Products  -->
 
           <paper-submenu label="paper-submenu" reset>
             <paper-button class="menu-trigger app-menu-item">
               <div>
                 <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
-                <span>Products</span>
+                <span>Projects</span>
               </div>
             </paper-button>
             <paper-menu class="menu-content sublist">
-              <paper-submenu label="BPM Products" >
-                <paper-item class="menu-trigger app-menu-item-sub">BPM Products</paper-item>
+              <paper-submenu label="Production" >
+                <paper-item class="menu-trigger app-menu-item-sub">Production</paper-item>
                 <paper-menu class="menu-content sublist2">
-                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">uEngine BPM</paper-item>
-                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">Essencia</paper-item>
-                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">SNS</paper-item>
+                    <paper-item class="app-menu-item-sub" style="padding-left: 50px">Garuda PaaS</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">OCE-IAM / GW</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">OCE-Billing</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">uEngine BPMS</paper-item>
+                  <paper-item class="app-menu-item-sub" style="padding-left: 50px">Metaworks</paper-item>
                 </paper-menu>
               </paper-submenu>
-                <paper-submenu label="Cloud Platform">
-                  <paper-item class="menu-trigger app-menu-item-sub">Cloud Platform</paper-item>
+                <paper-submenu label="Incubation">
+                  <paper-item class="menu-trigger app-menu-item-sub">Incubation</paper-item>
                   <paper-menu class="menu-content sublist2">
-                    <paper-item class="app-menu-item-sub" style="padding-left: 50px">Garuda PaaS</paper-item>
-                    <paper-item class="app-menu-item-sub" style="padding-left: 50px">uEngine Billing</paper-item>
-                    <paper-item cclass="app-menu-item-sub" style="padding-left: 50px">IAM/API Gateway</paper-item>
+                    <paper-item class="app-menu-item-sub" style="padding-left: 50px">Metadata-server</paper-item>
                   </paper-menu>
               </paper-submenu>
               <paper-submenu label="Libraries and Frameworks">
@@ -203,20 +207,14 @@
             </paper-menu>
           </paper-submenu>
 
-          <!--main menu: Case Studies  -->
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Case Studies" head-background-color="#ad1457" isflex2child="false">
+
+          <!--main menu: Event  -->
+
+          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Documents" head-background-color="#ad1457" isflex2child="false">
+        
             <div>
               <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
-              <span> Case Studies </span>
-            </div>
-          </paper-button>
-
-          <!--main menu: Library -->
-
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Library" head-background-color="#3949ab" isflex2child="true">
-            <div>
-              <iron-icon class="app-menu-icon" icon="icons:assessment"></iron-icon>
-              <span> Library </span>
+              <span> Documents</span>
             </div>
           </paper-button>
 
@@ -226,14 +224,6 @@
             <div>
               <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
               <span> Event </span>
-            </div>
-          </paper-button>
-
-          <!--main menu: Service  -->
-          <paper-button class="app-menu-item" href="#" on-tap="defaultpage" heading="Service" head-background-color="#039be5" isflex2child="false">
-            <div>
-              <iron-icon class="app-menu-icon" icon="icons:account-box"></iron-icon>
-              <span> Service </span>
             </div>
           </paper-button>
 
@@ -282,10 +272,10 @@
         <!-- main menu -->
            <iron-pages class="body-content-subordinate" selected="{{page}}">
             <uengine-home></uengine-home>
+            <oce-sampler></oce-sampler>
             <uengine-products></uengine-products>
-            <uengine-about-license></uengine-about-license>
-            <youtube-box></youtube-box>
-            <test></test>
+            <oce-docs></oce-docs>
+            <oce-events></oce-events>
             <br>
           </iron-pages>
         </div>

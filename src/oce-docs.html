@@ -1,0 +1,257 @@
+
+<link rel="import" href="./uengine-home-timeline/uengine-home-timeline.html">
+<link rel="import" href="./uengine-home-svg/uengine-home-svg.html">
+  <link rel="import" href="../uengine-products/uengine-products.html">
+  <link rel="import" 
+        href="/bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+<dom-module id="oce-docs">
+  <template>
+
+ <style include="iron-flex"></style>
+   <style is="custom-style">
+
+paper-card { max-width: 1000px; min-width: 250px; margin: 10px; }
+
+    app-toolbar {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-align: center;
+      color: #1a237e;
+    }
+
+    .nav {
+      height: 64px;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .nav li {
+      display: inline-block;
+      list-style: none;
+    }
+
+    .nav a {
+      display: inline-block;
+      font-weight: 12px;
+      line-height: 64px;
+      text-decoration: none;
+      color: black;
+      font-weight: 300;
+      margin: 0 10px;
+    }
+
+    .nav a:hover {
+      color: #444;
+      border-bottom: 1px solid #999;
+    }
+
+    [threshold-triggered] {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .first, .second, .third {
+      height: 600px;
+    }
+    .fourth{
+      height: 300px;
+    }
+
+    .first {
+      --app-box-background-front-layer: {
+
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+    .second {
+      --app-box-background-front-layer: {
+        background-image: url(images/products.png);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+
+    .third {
+      --app-box-background-front-layer: {
+        background-image: url(images/cases.png);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+
+    .fourth {
+      --app-box-background-front-layer: {
+
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+
+      };
+    }
+
+    section {
+      padding-top: 100px;
+    }
+
+    article {
+      font-weight: 100;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto 100px auto;
+    }
+    article h2 {
+      font-weight: 100;
+      font-size: 50px;
+      margin: 5px;
+      line-height: 110%
+    }
+    article h3 {
+      font-weight: 80;
+      font-size: 30px;
+      margin: 10px;
+    }
+
+    article p {
+      font-size: 18px;
+      line-height: 30px;
+    }
+
+    article p-mini {
+      font-size: 10px;
+      line-height: 30px;
+    }
+
+    article hr {
+      width: 100px;
+      height: 1px;
+      border: none;
+      margin: 20px auto;
+      background-color: black;
+    }
+    .flex-horizontal-with-ratios {
+      @apply(--layout-horizontal);
+    }
+
+    .flex2child {
+      @apply(--layout-flex-2);
+      background-color: #E8F8F5;
+    }
+    .flex10child {
+      @apply(--layout-flex-10);
+
+    }
+
+    .uengine-products-div{
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #fafafa;
+      position: fixed;
+    }
+
+    .red{
+      color: red;
+    }
+    .red-background{
+      color: #ffffff;
+      background-color: red;
+    }
+    .orange{
+      color: #FFC300;
+    }
+    .orange-background{
+      color: #ffffff;
+      background-color: #FFC300;
+    }
+    .cobalt-blue{
+      color: #00039c;
+    }
+    .cobalt-blue-background{
+      color: #ffffff;
+      background-color: #00039c;
+    }
+    .green{
+      color: #58D68D;
+    }
+    .green-background{
+      color: #ffffff;
+      background-color: #58D68D;
+    }
+    .brown{
+      color: #967f61;
+    }
+    .brown-background{
+      color: #ffffff;
+      background-color: #967f61;
+    }
+    .right-menu-color{
+       background-color: #E8F8F5;
+       color: #ffffff;
+    }
+    .white{
+      color: #ffffff;
+    }
+
+
+
+  </style>
+      <div id = "body-content" class="container flex-horizontal-with-ratios">
+        <div class="flex10child">
+            <main>
+
+
+   <section id="mainSlide">
+      <article>
+        <hr />
+        <h2 class="mainFont">프리젠테이션</h2>
+        <br>
+
+    <iframe src="//www.slideshare.net/slideshow/embed_code/key/f42ZuN7VdR3p7c" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/pongsor/ss-72224921" title="성공적인 서비스로의 플랫폼 선택" target="_blank">성공적인 서비스로의 플랫폼 선택</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/pongsor">uEngine Solutions</a></strong> </div>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/8OLjSBPmzCUDpI" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/pongsor/9-design-factors-for-cloud-applications" title="9 design factors for cloud applications" target="_blank">9 design factors for cloud applications</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/pongsor">uEngine Solutions</a></strong> </div>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/q0XnJs2eYglFKa" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/pongsor/frontend-architecture-for-cloud-applications-and-polymer" title="Front-end architecture for cloud applications and Polymer" target="_blank">Front-end architecture for cloud applications and Polymer</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/pongsor">uEngine Solutions</a></strong> </div>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/2WQ6Rm1cfvEQGc" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/secret/2WQ6Rm1cfvEQGc" title="Docker와 mesos기반의 workload 분산 시스템" target="_blank">Docker와 mesos기반의 workload 분산 시스템</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/pongsor">uEngine Solutions</a></strong> </div>
+    </article>
+  </section>
+
+
+</main>
+   </template>
+
+  <script>
+    Polymer({
+
+
+      properties:{
+       is: 'oce-sampler',
+
+        page: String
+
+      },
+
+
+    });
+  </script>
+
+
+</dom-module>
