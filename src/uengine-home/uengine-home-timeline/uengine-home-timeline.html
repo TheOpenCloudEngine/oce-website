@@ -1,17 +1,19 @@
 
 
-  
+
   <link rel="import" href="../bs-timeline/bs-timeline.html">
 
 <dom-module id="uengine-home-timeline">
   <template>
 
 <style>
-
+  bs-timeline-entry {
+    background-color: #fff;
+  };
  </style>
  <bs-timeline>
     <bs-timeline-entry title="오픈클라우드엔진 오픈소스 프로젝트 결성" time="2013" badge="comment" id="first">
-              
+
     </bs-timeline-entry>
 
      <bs-timeline-entry title="KIAT 프로젝트 적용" time="2014. 1." badge="comment" id="second" inverse>
@@ -33,7 +35,7 @@
   <script>
     Polymer({
 
- 
+
       properties:{
        is: 'uengine-home-timeline',
 
