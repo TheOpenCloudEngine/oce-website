@@ -20,12 +20,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <title>Open Cloud Engine</title>
         <!-- // CSS Reset – http://meyerweb.com/eric/tools/css/reset/ -->
         <link rel="stylesheet" type="text/css" href="css/Lora/reset.css" media="all">
-
-
-
-
-
   <title>homepage_test</title>
+
   <link rel="import" href="/bower_components/polymer/polymer.html">
   <link rel="import" href="/bower_components/app-layout/app-box/app-box.html">
   <link rel="import" href="/bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
@@ -64,11 +60,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="/bower_components/bwt-datatable/bwt-datatable.html">
   <link rel="import" href="/bower_components/bwt-datatable/bwt-datatable-card.html">
   <link rel="import" href="/bower_components/bwt-datatable/docs/documentation-menu.html">
-
-
-
-  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout-classes.html">
   <link rel="import" href="/src/uenginehome-app/uenginehome-app.html">
+
+
   <style>
 
     body {
@@ -79,11 +74,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </style>
 
-
 </head>
+
 <body unresolved>
 
     <uenginehome-app></uenginehome-app>
 
+    <script>
+
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+            console.log("----chrome----")
+        // platform is good!
+      } else {
+        // polyfill the platform!
+        console.log("----ie----")
+        var e = document.createElement('script');
+        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        document.body.appendChild(e);
+      }
+    })();
+    </script>
 </body>
+
 </html>
