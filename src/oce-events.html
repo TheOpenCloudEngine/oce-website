@@ -1,103 +1,10 @@
 <dom-module id="oce-events">
-  <template>
+  <template id="page-template">
 
  <style include="iron-flex"></style>
    <style is="custom-style">
 
-paper-card { max-width: 1000px; min-width: 250px; margin: 10px; }
-
-    app-toolbar {
-      font-size: 18px;
-      font-weight: 400;
-      letter-spacing: 5px;
-      text-align: center;
-      color: #1a237e;
-    }
-
-    .nav {
-      height: 64px;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.8);
-    }
-
-    .nav li {
-      display: inline-block;
-      list-style: none;
-    }
-
-    .nav a {
-      display: inline-block;
-      font-weight: 12px;
-      line-height: 64px;
-      text-decoration: none;
-      color: black;
-      font-weight: 300;
-      margin: 0 10px;
-    }
-
-    .nav a:hover {
-      color: #444;
-      border-bottom: 1px solid #999;
-    }
-
-    [threshold-triggered] {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      backdrop-filter: saturate(180%) blur(20px);
-    }
-
-    .first, .second, .third {
-      height: 600px;
-    }
-    .fourth{
-      height: 300px;
-    }
-
-    .first {
-      --app-box-background-front-layer: {
-
-        background-position: bottom;
-        padding-bottom: 120px;
-        margin-top: -20px;
-        height: 100%;
-      };
-    }
-    .second {
-      --app-box-background-front-layer: {
-        background-image: url(images/products.png);
-        background-position: bottom;
-        padding-bottom: 120px;
-        margin-top: -20px;
-        height: 100%;
-      };
-    }
-
-    .third {
-      --app-box-background-front-layer: {
-        background-image: url(images/cases.png);
-        background-position: bottom;
-        padding-bottom: 120px;
-        margin-top: -20px;
-        height: 100%;
-      };
-    }
-
-    .fourth {
-      --app-box-background-front-layer: {
-
-        background-position: bottom;
-        padding-bottom: 120px;
-        margin-top: -20px;
-        height: 100%;
-
-      };
-    }
+    paper-card { max-width: 1000px; min-width: 250px; margin: 10px; }
 
     section {
       padding-top: 100px;
@@ -138,82 +45,15 @@ paper-card { max-width: 1000px; min-width: 250px; margin: 10px; }
       margin: 20px auto;
       background-color: black;
     }
-    .flex-horizontal-with-ratios {
-      @apply(--layout-horizontal);
-    }
-
-    .flex2child {
-      @apply(--layout-flex-2);
-      background-color: #E8F8F5;
-    }
-    .flex10child {
-      @apply(--layout-flex-10);
-
-    }
-
-    .uengine-products-div{
-      margin: 0;
-      font-family: 'Roboto', 'Noto', sans-serif;
-      background-color: #fafafa;
-      position: fixed;
-    }
-
-    .red{
-      color: red;
-    }
-    .red-background{
-      color: #ffffff;
-      background-color: red;
-    }
-    .orange{
-      color: #FFC300;
-    }
-    .orange-background{
-      color: #ffffff;
-      background-color: #FFC300;
-    }
-    .cobalt-blue{
-      color: #00039c;
-    }
-    .cobalt-blue-background{
-      color: #ffffff;
-      background-color: #00039c;
-    }
-    .green{
-      color: #58D68D;
-    }
-    .green-background{
-      color: #ffffff;
-      background-color: #58D68D;
-    }
-    .brown{
-      color: #967f61;
-    }
-    .brown-background{
-      color: #ffffff;
-      background-color: #967f61;
-    }
-    .right-menu-color{
-       background-color: #E8F8F5;
-       color: #ffffff;
-    }
-    .white{
-      color: #ffffff;
-    }
-
-
-
   </style>
-      <div id = "body-content" class="container flex-horizontal-with-ratios">
-        <div class="flex10child">
-            <main>
-    <section id="uengine-opensource-knowledge">
-      <article >
-        <hr />
-        <h2 class="mainFont">OCE Day</h2>
-        <br>
-        <p class="mainFont">매년 1회씩 있는 OCE Day에 참여하세요 </p>
-      </article>
+      <div id="events">
+        <section id="uengine-opensource-knowledge">
+          <article >
+            <hr />
+            <h2 class="mainFont">OCE Day</h2>
+            <br>
+            <p class="mainFont">매년 1회씩 있는 OCE Day에 참여하세요 </p>
+          </article>
 
 <paper-card heading="2017 OCE Day" i mage="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
   <div class="card-content">
@@ -247,18 +87,13 @@ paper-card { max-width: 1000px; min-width: 250px; margin: 10px; }
   </div>
 </paper-card>
 </section>
-
-</main>
+</div>
    </template>
 
   <script>
     Polymer({
-
-
+      is: 'oce-events',
       properties:{
-       is: 'oce-events',
-
-        page: String
 
       },
 
